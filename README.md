@@ -19,12 +19,13 @@ npm i https://github.com/LearXD/brainly-api
 ```js
 const brainly = require("brainly-api");
 
-const instance = new Brainly({ language: 'en'})
-const search = await instance.search('What is the meaning of life?')
-const answers = await instance.getQuestionById(search.results[0].question.id)
+const brainly = new Brainly({ language: 'pt' })
 
-console.log(`Answer 1: ${answers.data.questionById.answers.nodes[0].content}`)
-console.log(`Answer 2: ${answers.data.questionById.answers.nodes[1].content}`)
+const search = await brainly.search('Who discovered Brazil?')
+const answers = await brainly.getQuestionById(search.results[0].question.id)
+
+console.log(`Answer 1: ${answers.data.questionById.answers.nodes[0]?.content}`)
+console.log(`Answer 2: ${answers.data.questionById.answers.nodes[1]?.content}`)
 ```
 
 ## Support
