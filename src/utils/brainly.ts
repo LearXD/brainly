@@ -1,21 +1,20 @@
 import BrainlyApi from "../api/brainly";
 import { Language, acceptedLanguages } from "../interfaces/languages";
 
-const DEFAULT_LANGUAGE = 'pt'
+export const DEFAULT_LANGUAGE = 'pt'
 
 interface BrainlyOptions {
-  language?: Language
+  language?: string
 }
 
 export default class Brainly {
 
-  public static instance: Brainly
   private api: BrainlyApi
+  public language: Language
 
   constructor(public options: BrainlyOptions = {}) {
-    Brainly.instance = this
     this.initLanguage()
-    this.api = new BrainlyApi({ language: this.options.language })
+    this.api = new BrainlyApi({ language: this.language })
   }
 
   public initLanguage() {
@@ -23,13 +22,18 @@ export default class Brainly {
 
     if (!this.options?.language) {
       console.warn(`None language was provided. Using default language: ${defaultLanguage.name}`)
-      this.options.language = defaultLanguage
+      this.language = defaultLanguage
       return;
     }
 
-    this.options.language = acceptedLanguages.find(lang => lang.code === this.options.language.code) || defaultLanguage
-  }
+    this.language = acceptedLanguages.find(lang => lang.code === this.options.language) || defaultLanguage
 
+    if (!this.language) {
+      console.warn(`Language ${this.options.language} not found. Using default language: ${defaultLanguage.name}`)
+      this.language = defaultLanguage
+    }
+
+  }
 
   public search = async (query: string, limit: number = 10) => {
     return this.api.search(query, limit)

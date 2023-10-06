@@ -1,9 +1,9 @@
-export interface Language {
+interface Language {
   code: string
   name: string
 }
 
-export type Languages = Language[]
+type Languages = Language[]
 
 const acceptedLanguages: Languages = [
   {
@@ -20,4 +20,14 @@ const acceptedLanguages: Languages = [
   }
 ]
 
-export { acceptedLanguages }
+type AcceptedLanguageCodes<T> = 'pt' | 'es' | 'en' | T
+
+const addLanguage = (language: Language) => {
+  const exists = acceptedLanguages.find(({ code, name }) => code === language.code || name === language.name)
+  if (exists) {
+    throw new Error(`Language ${language.name} already exists`)
+  }
+  acceptedLanguages.push(language)
+}
+
+export { acceptedLanguages, addLanguage, Languages, Language, AcceptedLanguageCodes }
