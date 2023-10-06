@@ -1,0 +1,36 @@
+{
+  "name": "open-brainly",
+  "version": "0.0.1",
+  "description": "A module that allows you to obtain data from the website: brainly.com",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev:debug": "npm run dev",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LearXD/open-brainly.git"
+  },
+  "keywords": [
+    "brainly",
+    "school",
+    "study",
+    "answers"
+  ],
+  "author": "Miguel Pinheiro <contato@learxd.dev> (LearXD)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LearXD/open-brainly/issues"
+  },
+  "homepage": "https://github.com/LearXD/open-brainly#readme",
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}
