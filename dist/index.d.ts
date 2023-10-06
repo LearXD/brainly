@@ -1,2 +1,3 @@
 import Brainly from "./utils/brainly";
-export { Brainly };
+import { addLanguage } from "./interfaces/languages";
+export { Brainly, addLanguage };
