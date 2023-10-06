@@ -1,5 +1,5 @@
 {
-  "name": "brainly-api",
+  "name": "@learxd/brainly-api",
   "version": "0.0.1",
   "description": "A module that allows you to obtain data from the website: brainly.com",
   "main": "dist/index.js",
