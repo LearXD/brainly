@@ -1,7 +1,9 @@
-export interface Language {
+interface Language {
     code: string;
     name: string;
 }
-export type Languages = Language[];
+type Languages = Language[];
 declare const acceptedLanguages: Languages;
-export { acceptedLanguages };
+type AcceptedLanguageCodes<T> = 'pt' | 'es' | 'en' | T;
+declare const addLanguage: (language: Language) => void;
+export { acceptedLanguages, addLanguage, Languages, Language, AcceptedLanguageCodes };

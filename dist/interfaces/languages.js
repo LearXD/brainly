@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.acceptedLanguages = void 0;
+exports.addLanguage = exports.acceptedLanguages = void 0;
 const acceptedLanguages = [
     {
         code: 'pt',
@@ -16,3 +16,11 @@ const acceptedLanguages = [
     }
 ];
 exports.acceptedLanguages = acceptedLanguages;
+const addLanguage = (language) => {
+    const exists = acceptedLanguages.find(({ code, name }) => code === language.code || name === language.name);
+    if (exists) {
+        throw new Error(`Language ${language.name} already exists`);
+    }
+    acceptedLanguages.push(language);
+};
+exports.addLanguage = addLanguage;

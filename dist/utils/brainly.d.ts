@@ -1,11 +1,12 @@
 import { Language } from "../interfaces/languages";
+export declare const DEFAULT_LANGUAGE = "pt";
 interface BrainlyOptions {
-    language?: Language;
+    language?: string;
 }
 export default class Brainly {
     options: BrainlyOptions;
-    static instance: Brainly;
     private api;
+    language: Language;
     constructor(options?: BrainlyOptions);
     initLanguage(): void;
     search: (query: string, limit?: number) => Promise<import("../interfaces/brainly-api").BrainlySearch>;
