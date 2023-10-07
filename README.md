@@ -17,7 +17,7 @@ npm i https://github.com/LearXD/brainly-api
 ## Usage
 
 ```js
-const brainly = require("brainly-api");
+const brainly = require("node-brainly");
 
 const brainly = new Brainly({ language: 'pt' })
 
